@@ -34,7 +34,14 @@ except ZeroDivisionError:
 finally:
     print("Execution completed.")
 
-#Function Definition and Invocation
-def greet(name):
-    return f"Hello, {name}!"    
-print(greet("Alice"))
+# switch-case
+def switch_case_example(value):
+    match value:
+        case 1:
+            return "You selected option 1."
+        case 2:
+            return "You selected option 2."
+        case 3:
+            return "You selected option 3."
+        case _:
+            return "Invalid option selected."
