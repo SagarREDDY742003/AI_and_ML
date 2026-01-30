@@ -44,7 +44,7 @@ with open('example.txt', 'r') as file:
         print(line.strip())
 
 
-####----APPEND MODE-----####################################
+####----APPEND MODE-----###########################################
 
 file = open('example.txt', 'a')
 file.write('Appending a new line.\n')
