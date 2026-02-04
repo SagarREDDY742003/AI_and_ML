@@ -81,17 +81,6 @@ print("Linspace Array:", linspace_array)
 #output:
 #Linspace Array: [ 0.   2.5  5.   7.5 10.]
 
-# Broadcasting - Performing operations on arrays of different shapes 
-array_a = np.array([1, 2, 3]) # 1*3 array
-array_b = np.array([[10], [20], [30]]) # 3*1 array
-broadcasted_sum = array_a + array_b  # Broadcasting addition 
-print("Broadcasted Sum:\n", broadcasted_sum)
-# output:
-#Broadcasted Sum:
-# [[11 12 13]
-# [21 22 23]
-# [31 32 33]] 3*3 array
-
 #### Reshaping Arrays #####
 array_1d = np.array([1, 2, 3, 4, 5, 6])
 reshaped_array = array_1d.reshape((5, 1))  # Reshaping to a 5x1 array
@@ -165,7 +154,7 @@ print("Subarray Slice:\n", slice_subarray)
 # [[2 3]
 # [5 6]]
 
-#### Random Number Generation #####
+#### Random Number Generation and setting seeds #####
 random_array = np.random.rand(3, 3)  # Creating a 3x3 array of random numbers
 print("Random Array:\n", random_array)
 #output:
@@ -173,3 +162,41 @@ print("Random Array:\n", random_array)
 # [[0.5488135  0.71518937 0.60276338]
 # [0.54488318 0.4236548  0.64589411]
 # [0.43758721 0.891773   0.96366276]]
+
+random_int = np.random.randint(0, 10, size=(2,3))  # Creating a 3x3 integers array of random numbers among 0 to 10
+print("Random Integer Array:\n", random_int)
+#output:
+#Random Integer Array:
+#[[4 9 8]
+#[5 8 6]]
+
+np.random.seed(42) # this will give same output no matter how many times you use random
+
+# Broadcasting - Performing operations on arrays of different shapes 
+array_a = np.array([1, 2, 3]) # 1*3 array
+array_b = np.array([[10], [20], [30]]) # 3*1 array
+broadcasted_sum = array_a + array_b  # Broadcasting addition 
+print("Broadcasted Sum:\n", broadcasted_sum)
+# output:
+#Broadcasted Sum:
+# [[11 12 13]
+# [21 22 23]
+# [31 32 33]] 3*3 array
+
+# Aggregation functions 
+arr = np.array([[1,2,3],[4,5,6]])
+print("sum: ",np.sum(arr)) #  sum:  21
+print("mean: ",np.mean(arr)) #mean:  3.5
+print("max: ",np.max(arr)) #max:  6
+print("min: ",np.min(arr)) #min:  1
+print("standard deviation: ",np.std(arr)) #standard deviation:  1.707825127659933
+print("sum along rows: ",np.sum(arr,axis=1)) #sum along rows:  [ 6 15]
+print("sum along columns: ",np.sum(arr,axis=0)) #sum along columns:  [5 7 9]
+
+# Boolean Indexing and filtering
+arr = np.array([1,2,3,4,5,6])
+evens = arr[arr %2 == 0]
+print(evens) # [2 4 6]
+
+arr[arr>3] = 0
+print("Modified array: ", arr) # Modified array:  [1 2 3 0 0 0]
